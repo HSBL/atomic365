@@ -9,8 +9,10 @@
           :rules="rules"
           hide-details="auto"
         ></v-text-field>
-
-        <h1>by the end of on year : {{ result }}</h1>
+        <div class="result">
+        <p>by the end of the year :</p>
+        <h1>{{ result }}</h1>
+        </div>
       </v-col>
     </v-row>
   </div>
@@ -27,11 +29,26 @@ export default {
   }),
   computed: {
     result: function () {
-      return Number(this.initial) + 5;
+      if (Number(this.initial)) {
+        var init = Number(this.initial);
+        for (let i = 0; i < 365; i++) {
+          init += init * 0.01;
+        }
+        return init;
+      } else {
+        return "calculating...";
+      }
     },
   },
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.result {
+    padding: 2rem;
+
+    p {
+        font-size: larger;
+    }
+}
 </style>
