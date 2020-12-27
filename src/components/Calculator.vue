@@ -1,6 +1,6 @@
 <template>
   <div class="calculator">
-    <h1>Hello Calculator</h1>
+    <h1>Atomic Habbit Calculator</h1>
     <v-row>
       <v-col cols="12">
         <v-text-field
